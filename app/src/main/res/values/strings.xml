@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Config Changes Playground</string>
+    <string name="btn_open_yellow_activity">Open Second Activity</string>
+    <string name="text_main_button_clicked">Clicked main button</string>
+    <string name="btn_open_yk_activity">Open third Activity</string>
+    <string name="text_second_button_clicked">Clicked second button</string>
+    <string name="connect_device">Connect device</string>
+    <string name="device_connected">Device connected</string>
+    <string name="main_activity_description">This is the main launcher activity</string>
+    <string name="second_activity_description">This is the second activity</string>
+    <string name="third_activity_description">This is the device activity</string>
+</resources>

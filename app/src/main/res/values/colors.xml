@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="example_primary_night">#000000</color>
+    <color name="example_primary">#000000</color>
+    <color name="example_primary_variant">#434343</color>
+    <color name="example_secondary">#FF03DAC5</color>
+    <color name="example_secondary_variant">#FF018786</color>
+    <color name="description">#7E7E7E</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+</resources>
