@@ -2,16 +2,13 @@ package com.adamve.configchanges
 
 import android.content.ComponentName
 import android.content.pm.PackageManager
-import android.content.res.Configuration
 import android.os.Bundle
-import android.util.Log
 import android.widget.TextView
 import androidx.activity.viewModels
-import androidx.appcompat.app.AppCompatActivity
 import com.yubico.yubikit.android.YubiKitManager
 import com.yubico.yubikit.android.transport.usb.UsbConfiguration
 
-class ThirdActivity : AppCompatActivity() {
+class ThirdActivity : ReportingActivity(R.layout.activity_third) {
 
     private val viewModel: ThirdActivityVM by viewModels()
 
@@ -19,11 +16,8 @@ class ThirdActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        log("onCreate")
 
         yubikit = YubiKitManager(this)
-
-        setContentView(R.layout.activity_third)
 
         viewModel.message.observe(this) {
             findViewById<TextView>(R.id.third_activity_info_text).text =
@@ -34,26 +28,13 @@ class ThirdActivity : AppCompatActivity() {
     override fun onPause() {
         stopUsbDiscovery()
         setUsbIntentFilterEnabled(false)
-        log("onPause")
         super.onPause()
-
     }
 
     override fun onResume() {
         super.onResume()
-        log("onResume")
         setUsbIntentFilterEnabled(true)
         startUsbDiscovery()
-    }
-
-    override fun onDestroy() {
-        log("onDestroy")
-        super.onDestroy()
-    }
-
-    override fun onConfigurationChanged(newConfig: Configuration) {
-        super.onConfigurationChanged(newConfig)
-        log("onConfigurationChanged")
     }
 
     private fun setUsbIntentFilterEnabled(enabled: Boolean) {
@@ -69,11 +50,8 @@ class ThirdActivity : AppCompatActivity() {
         )
     }
 
-    private fun log(message: String) {
-        Log.d("ThirdActivity", "ThirdActivity.$message")
-    }
-
     private fun startUsbDiscovery() {
+        log("starting UsbDiscovery")
         val usbConfiguration = UsbConfiguration().handlePermissions(true)
         yubikit.startUsbDiscovery(usbConfiguration) { device ->
             viewModel.setMessageId(R.string.device_connected)
@@ -84,6 +62,7 @@ class ThirdActivity : AppCompatActivity() {
     }
 
     private fun stopUsbDiscovery() {
+        log("stopping UsbDiscovery")
         yubikit.stopUsbDiscovery()
     }
 }

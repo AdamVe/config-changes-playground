@@ -15,7 +15,7 @@
 
         <activity
             android:name=".MainActivity"
-            android:configChanges="keyboard|keyboardHidden"
+            android:configChanges="navigation|keyboard|keyboardHidden"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -27,12 +27,12 @@
 
         <activity
             android:name=".SecondActivity"
-            android:configChanges="keyboard|keyboardHidden"
+            android:configChanges="navigation|keyboard|keyboardHidden"
             android:exported="true" />
 
         <activity-alias
             android:name=".AliasThirdActivity"
-            android:configChanges="keyboard|keyboardHidden"
+            android:configChanges="navigation|keyboard|keyboardHidden"
             android:enabled="false"
             android:exported="true"
             android:targetActivity=".ThirdActivity">
@@ -49,7 +49,7 @@
 
         <activity
             android:name=".ThirdActivity"
-            android:configChanges="keyboard|keyboardHidden"
+            android:configChanges="navigation|keyboard|keyboardHidden"
             android:exported="true"
             android:launchMode="singleTask" />
 
